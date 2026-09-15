@@ -1,7 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Product } from "@/lib/products";
 import { featuredDuos } from "@/lib/products";
 import { CastleArt } from "./CastleArt";
+
+function DuoArt({ product }: { product: Product }) {
+  if (product.kidImage && product.adultImage) {
+    return (
+      <div className="relative h-56 overflow-hidden bg-[#FFF1E8] sm:h-60">
+        <div className="absolute left-3 top-5 w-[62%] overflow-hidden rounded-2xl bg-paper shadow-lg ring-2 ring-sunshine">
+          <Image
+            src={product.kidImage}
+            alt={`${product.name} Kid Edition cover`}
+            width={640}
+            height={360}
+            className="h-auto w-full"
+          />
+        </div>
+        <div className="absolute bottom-4 right-3 w-[62%] overflow-hidden rounded-2xl bg-paper shadow-lg ring-2 ring-teal">
+          <Image
+            src={product.adultImage}
+            alt={`${product.name} Adult Edition cover`}
+            width={640}
+            height={360}
+            className="h-auto w-full"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (product.kidImage) {
+    return (
+      <Image
+        src={product.kidImage}
+        alt={`${product.name} Kid Edition cover`}
+        width={1280}
+        height={720}
+        className="h-auto w-full"
+      />
+    );
+  }
+
+  return <CastleArt />;
+}
 
 export function FeaturedDuos() {
   return (
@@ -23,43 +65,16 @@ export function FeaturedDuos() {
           {featuredDuos.map((product) => (
             <article
               key={product.slug}
-              className="flex flex-col overflow-hidden rounded-[1.7rem] bg-paper shadow-[var(--shadow-card)] ring-1 ring-ink/8"
+              className="flex flex-col overflow-hidden rounded-[1.7rem] bg-paper shadow-[var(--shadow-card)] ring-2 ring-ink/8"
             >
               <div className="relative bg-mist">
-                {product.kidImage && product.adultImage ? (
-                  <div className="grid grid-cols-2">
-                    <Image
-                      src={product.kidImage}
-                      alt={`${product.name} Kid Edition cover`}
-                      width={640}
-                      height={360}
-                      className="h-full w-full object-cover"
-                    />
-                    <Image
-                      src={product.adultImage}
-                      alt={`${product.name} Adult Edition cover`}
-                      width={640}
-                      height={360}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                ) : product.kidImage ? (
-                  <Image
-                    src={product.kidImage}
-                    alt={`${product.name} Kid Edition cover`}
-                    width={1280}
-                    height={720}
-                    className="h-auto w-full"
-                  />
-                ) : (
-                  <CastleArt />
-                )}
+                <DuoArt product={product} />
                 {product.status === "coming-soon" ? (
                   <span className="absolute left-4 top-4 rounded-full bg-sunshine px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
                     Coming soon
                   </span>
                 ) : (
-                  <span className="absolute left-4 top-4 rounded-full bg-ink px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                  <span className="absolute left-4 top-4 z-10 rounded-full bg-ink px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
                     Kid + Adult
                   </span>
                 )}

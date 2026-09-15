@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 
 export default function FrenchiePage() {
   return (
-    <main id="main" className="bg-cloud">
+    <main id="main" className="bg-[#FFF6EE]">
+      <div className="h-2 w-full bg-[linear-gradient(90deg,#FF5A5F_0%,#FFC83D_50%,#00B3B3_100%)]" aria-hidden="true" />
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-coral">{frenchie.eyebrow}</p>
         <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-6xl">

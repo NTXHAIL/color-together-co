@@ -7,9 +7,7 @@ export function Footer() {
     <footer className="border-t border-ink/8 bg-ink text-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <span className="inline-flex [&_span]:text-paper">
-            <Logo />
-          </span>
+          <Logo inverted />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
             Printable Creator Duo twin packs for families who want the same theme at two
             ages. {site.promise} {site.tagline}

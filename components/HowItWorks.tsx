@@ -3,19 +3,22 @@ const steps = [
     n: "01",
     title: "Download",
     body: "Grab the Creator Duo as printable PDFs — Kid Edition and Adult Edition of the same theme, ready the same night.",
-    accent: "bg-coral",
+    card: "bg-[#FFE4E5] ring-coral/20",
+    badge: "bg-coral text-white",
   },
   {
     n: "02",
     title: "Print",
     body: "Home printer or the shop down the street. Letter-size pages, bold linework, no special paper required.",
-    accent: "bg-sunshine",
+    card: "bg-[#FFF4CC] ring-sunshine/40",
+    badge: "bg-sunshine text-ink",
   },
   {
     n: "03",
     title: "Color together",
     body: "Same scene. Two ages. One table. Talk about the cape, the jet, the sky — while you each work at your own pace.",
-    accent: "bg-teal",
+    card: "bg-[#D6F3F3] ring-teal/25",
+    badge: "bg-teal text-white",
   },
 ];
 
@@ -33,10 +36,10 @@ export function HowItWorks() {
           {steps.map((step) => (
             <li
               key={step.n}
-              className="rounded-[1.6rem] border border-ink/8 bg-cloud p-6 shadow-[var(--shadow-card)]"
+              className={`rounded-[1.6rem] p-6 shadow-[var(--shadow-card)] ring-2 ${step.card}`}
             >
               <span
-                className={`inline-flex h-10 w-10 items-center justify-center rounded-full ${step.accent} font-display text-sm font-bold text-ink ${step.accent === "bg-coral" || step.accent === "bg-teal" ? "text-white" : ""}`}
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full font-display text-sm font-bold ${step.badge}`}
               >
                 {step.n}
               </span>

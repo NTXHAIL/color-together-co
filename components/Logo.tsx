@@ -1,9 +1,14 @@
 type LogoProps = {
   className?: string;
   markClassName?: string;
+  inverted?: boolean;
 };
 
-export function Logo({ className = "", markClassName = "h-9 w-9" }: LogoProps) {
+export function Logo({
+  className = "",
+  markClassName = "h-9 w-9",
+  inverted = false,
+}: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <svg
@@ -13,20 +18,13 @@ export function Logo({ className = "", markClassName = "h-9 w-9" }: LogoProps) {
         aria-hidden="true"
       >
         <rect width="40" height="40" rx="12" fill="#FF5A5F" />
-        <path
-          d="M12 26c4-9 12-9 16 0"
-          stroke="#FFFFFF"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-        />
-        <circle cx="16.5" cy="16" r="2.1" fill="#FFC83D" />
-        <circle cx="23.5" cy="16" r="2.1" fill="#FFFFFF" />
-        <path
-          d="M20 10.5c.2 1.8-1.4 2.6-1.4 4.2 0 1.2 1 2 2.1 2s2.1-.8 2.1-2c0-1.6-1.6-2.4-1.4-4.2"
-          fill="#FFFFFF"
-        />
+        <path d="M11 28l4-16h5l-4 16h-5z" fill="#FFC83D" />
+        <path d="M20 28l4-16h5l-4 16h-5z" fill="#FFFFFF" />
+        <circle cx="30.5" cy="11.5" r="3" fill="#00B3B3" />
       </svg>
-      <span className="font-display text-[1.15rem] font-semibold leading-none tracking-tight text-ink sm:text-xl">
+      <span
+        className={`font-display text-[1.15rem] font-semibold leading-none tracking-tight sm:text-xl ${inverted ? "text-paper" : "text-ink"}`}
+      >
         Color Together Co.
       </span>
     </span>

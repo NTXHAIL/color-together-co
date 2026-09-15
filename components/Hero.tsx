@@ -4,10 +4,14 @@ import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-cloud dot-field">
+    <section className="relative overflow-hidden dot-field">
+      <div
+        className="h-2 w-full bg-[linear-gradient(90deg,#FF5A5F_0%,#FFC83D_50%,#00B3B3_100%)]"
+        aria-hidden="true"
+      />
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:py-20">
         <div className="animate-rise">
-          <p className="inline-flex items-center gap-2 rounded-full bg-paper px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-teal ring-1 ring-teal/25">
+          <p className="inline-flex items-center gap-2 rounded-full bg-paper px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-teal ring-2 ring-teal/30">
             Creator Duo twin packs
           </p>
           <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.95] tracking-tight text-ink sm:text-6xl lg:text-7xl">
@@ -36,14 +40,8 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <div className="absolute -left-3 top-6 hidden rounded-full bg-sunshine px-3 py-1 text-xs font-bold text-ink shadow-md sm:block">
-            Kid Edition
-          </div>
-          <div className="absolute -right-2 bottom-16 hidden rounded-full bg-teal px-3 py-1 text-xs font-bold text-white shadow-md sm:block">
-            Adult Edition
-          </div>
-          <div className="relative aspect-[4/3]">
-            <div className="animate-float absolute left-0 top-6 w-[68%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-paper">
+          <div className="relative min-h-[22rem] sm:min-h-[26rem]">
+            <div className="animate-float absolute left-0 top-2 w-[72%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-sunshine">
               <Image
                 src="/images/frenchie-kid-edition.jpg"
                 alt="Frenchie Family Night Kid Edition cover: a cartoon French bulldog in a crown and cape sitting on a couch"
@@ -52,8 +50,11 @@ export function Hero() {
                 priority
                 className="h-auto w-full"
               />
+              <p className="bg-sunshine px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-ink">
+                Kid Edition
+              </p>
             </div>
-            <div className="animate-float-alt absolute bottom-0 right-0 w-[68%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-paper">
+            <div className="animate-float-alt absolute bottom-0 right-0 w-[72%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-teal">
               <Image
                 src="/images/frenchie-adult-edition.jpg"
                 alt="Frenchie Family Night Adult Edition cover: a detailed French bulldog in a cape on a living-room sofa"
@@ -62,6 +63,9 @@ export function Hero() {
                 priority
                 className="h-auto w-full"
               />
+              <p className="bg-teal px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-white">
+                Adult Edition
+              </p>
             </div>
           </div>
         </div>
