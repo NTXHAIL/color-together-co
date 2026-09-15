@@ -42,6 +42,9 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
           <div className="relative min-h-[22rem] sm:min-h-[26rem]">
             <div className="animate-float absolute left-0 top-2 w-[72%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-sunshine">
+              <p className="bg-sunshine px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-ink">
+                Kid Edition
+              </p>
               <Image
                 src="/images/frenchie-kid-edition.jpg"
                 alt="Frenchie Family Night Kid Edition cover: a cartoon French bulldog in a crown and cape sitting on a couch"
@@ -50,9 +53,6 @@ export function Hero() {
                 priority
                 className="h-auto w-full"
               />
-              <p className="bg-sunshine px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-ink">
-                Kid Edition
-              </p>
             </div>
             <div className="animate-float-alt absolute bottom-0 right-0 w-[72%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-teal">
               <Image

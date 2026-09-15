@@ -1,51 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/lib/products";
 import { featuredDuos } from "@/lib/products";
 import { CastleArt } from "./CastleArt";
 
-function DuoArt({ product }: { product: Product }) {
-  if (product.kidImage && product.adultImage) {
-    return (
-      <div className="relative h-56 overflow-hidden bg-[#FFF1E8] sm:h-60">
-        <div className="absolute left-3 top-5 w-[62%] overflow-hidden rounded-2xl bg-paper shadow-lg ring-2 ring-sunshine">
-          <Image
-            src={product.kidImage}
-            alt={`${product.name} Kid Edition cover`}
-            width={640}
-            height={360}
-            className="h-auto w-full"
-          />
-        </div>
-        <div className="absolute bottom-4 right-3 w-[62%] overflow-hidden rounded-2xl bg-paper shadow-lg ring-2 ring-teal">
-          <Image
-            src={product.adultImage}
-            alt={`${product.name} Adult Edition cover`}
-            width={640}
-            height={360}
-            className="h-auto w-full"
-          />
-        </div>
-      </div>
-    );
-  }
-
-  if (product.kidImage) {
-    return (
-      <Image
-        src={product.kidImage}
-        alt={`${product.name} Kid Edition cover`}
-        width={1280}
-        height={720}
-        className="h-auto w-full"
-      />
-    );
-  }
-
-  return <CastleArt />;
-}
-
 export function FeaturedDuos() {
+  const [heroDuo, ...rest] = featuredDuos;
+
   return (
     <section id="shop" className="bg-cloud">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
@@ -61,14 +21,72 @@ export function FeaturedDuos() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {featuredDuos.map((product) => (
+        {heroDuo ? (
+          <article className="mt-10 overflow-hidden rounded-[1.7rem] bg-paper shadow-[var(--shadow-card)] ring-2 ring-ink/8">
+            <div className="grid md:grid-cols-2">
+              {heroDuo.kidImage ? (
+                <figure className="relative border-b border-ink/8 md:border-b-0 md:border-r">
+                  <Image
+                    src={heroDuo.kidImage}
+                    alt={`${heroDuo.name} Kid Edition cover`}
+                    width={1280}
+                    height={720}
+                    className="h-auto w-full"
+                  />
+                  <figcaption className="bg-sunshine px-4 py-2 text-center text-xs font-bold uppercase tracking-wide text-ink">
+                    Kid Edition
+                  </figcaption>
+                </figure>
+              ) : null}
+              {heroDuo.adultImage ? (
+                <figure className="relative">
+                  <Image
+                    src={heroDuo.adultImage}
+                    alt={`${heroDuo.name} Adult Edition cover`}
+                    width={1280}
+                    height={720}
+                    className="h-auto w-full"
+                  />
+                  <figcaption className="bg-teal px-4 py-2 text-center text-xs font-bold uppercase tracking-wide text-white">
+                    Adult Edition
+                  </figcaption>
+                </figure>
+              ) : null}
+            </div>
+            <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-end sm:justify-between sm:p-8">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-coral">{heroDuo.eyebrow}</p>
+                <h3 className="mt-2 font-display text-3xl font-semibold">{heroDuo.name}</h3>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-soft sm:text-base">{heroDuo.blurb}</p>
+              </div>
+              <Link
+                href={heroDuo.href}
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-coral px-5 py-3 font-semibold text-white shadow-[0_4px_0_0_#e9444a]"
+              >
+                See the Duo
+              </Link>
+            </div>
+          </article>
+        ) : null}
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          {rest.map((product) => (
             <article
               key={product.slug}
               className="flex flex-col overflow-hidden rounded-[1.7rem] bg-paper shadow-[var(--shadow-card)] ring-2 ring-ink/8"
             >
               <div className="relative bg-mist">
-                <DuoArt product={product} />
+                {product.kidImage ? (
+                  <Image
+                    src={product.kidImage}
+                    alt={`${product.name} Kid Edition cover`}
+                    width={1280}
+                    height={720}
+                    className="h-auto w-full"
+                  />
+                ) : (
+                  <CastleArt />
+                )}
                 {product.status === "coming-soon" ? (
                   <span className="absolute left-4 top-4 rounded-full bg-sunshine px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
                     Coming soon
