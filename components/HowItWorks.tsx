@@ -1,0 +1,54 @@
+const steps = [
+  {
+    n: "01",
+    title: "Download",
+    body: "Grab the Creator Duo as printable PDFs — Kid Edition and Adult Edition of the same theme, ready the same night.",
+    card: "bg-[#FFE4E5] ring-coral/20",
+    badge: "bg-coral text-white",
+  },
+  {
+    n: "02",
+    title: "Print",
+    body: "Home printer or the shop down the street. Letter-size pages, bold linework, no special paper required.",
+    card: "bg-[#FFF4CC] ring-sunshine/40",
+    badge: "bg-sunshine text-ink",
+  },
+  {
+    n: "03",
+    title: "Color together",
+    body: "Same scene. Two ages. One table. Talk about the cape, the jet, the sky — while you each work at your own pace.",
+    card: "bg-[#D6F3F3] ring-teal/25",
+    badge: "bg-teal text-white",
+  },
+];
+
+export function HowItWorks() {
+  return (
+    <section id="how-it-works" className="bg-paper">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+        <div className="max-w-2xl">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-coral">How it works</p>
+          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            From checkout to crayons in three moves
+          </h2>
+        </div>
+        <ol className="mt-10 grid gap-5 md:grid-cols-3">
+          {steps.map((step) => (
+            <li
+              key={step.n}
+              className={`rounded-[1.6rem] p-6 shadow-[var(--shadow-card)] ring-2 ${step.card}`}
+            >
+              <span
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full font-display text-sm font-bold ${step.badge}`}
+              >
+                {step.n}
+              </span>
+              <h3 className="mt-5 font-display text-2xl font-semibold">{step.title}</h3>
+              <p className="mt-3 leading-relaxed text-ink-soft">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
