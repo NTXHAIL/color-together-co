@@ -18,3 +18,11 @@ export function getSiteUrl(): string {
     ? `https://ntxhail.github.io${basePath}`
     : "https://ntxhail.github.io/color-together-co";
 }
+
+/** Prefix a root-relative public asset so it works under GitHub Pages basePath. */
+export function withBasePath(path: string): string {
+  if (!path.startsWith("/") || path.startsWith("//")) return path;
+  const base = getBasePath();
+  if (!base || path === base || path.startsWith(`${base}/`)) return path;
+  return `${base}${path}`;
+}
