@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fredoka, Nunito_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getSiteUrl } from "@/lib/paths";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.description,
-  metadataBase: new URL("https://colortogether.co"),
+  metadataBase: new URL(getSiteUrl()),
   openGraph: {
     title: `${site.name} — ${site.promise}`,
     description: site.description,
