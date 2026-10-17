@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage } from "./AppImage";
 import { bundle } from "@/lib/products";
 import { ButtonLink } from "./ButtonLink";
 
@@ -24,7 +24,7 @@ export function BundleCard() {
             <div className="grid gap-3 sm:grid-cols-2">
               {bundle.kidImage ? (
                 <div className="overflow-hidden rounded-2xl ring-4 ring-coral">
-                  <Image
+                  <AppImage
                     src={bundle.kidImage}
                     alt="Frenchie Family Night Kid Edition cover"
                     width={1280}
@@ -35,7 +35,7 @@ export function BundleCard() {
               ) : null}
               {bundle.adultImage ? (
                 <div className="overflow-hidden rounded-2xl ring-4 ring-teal">
-                  <Image
+                  <AppImage
                     src={bundle.adultImage}
                     alt="Jets and Joyrides Kid Edition cover"
                     width={1280}

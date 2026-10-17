@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage } from "./AppImage";
 import { ButtonLink } from "./ButtonLink";
 import { site } from "@/lib/site";
 
@@ -45,7 +45,7 @@ export function Hero() {
               <p className="bg-sunshine px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-ink">
                 Kid Edition
               </p>
-              <Image
+              <AppImage
                 src="/images/frenchie-kid-edition.jpg"
                 alt="Frenchie Family Night Kid Edition cover: a cartoon French bulldog in a crown and cape sitting on a couch"
                 width={1280}
@@ -55,7 +55,7 @@ export function Hero() {
               />
             </div>
             <div className="animate-float-alt absolute bottom-0 right-0 w-[72%] overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-lift)] ring-4 ring-teal">
-              <Image
+              <AppImage
                 src="/images/frenchie-adult-edition.jpg"
                 alt="Frenchie Family Night Adult Edition cover: a detailed French bulldog in a cape on a living-room sofa"
                 width={1280}

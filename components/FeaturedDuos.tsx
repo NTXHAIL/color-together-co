@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage } from "./AppImage";
 import Link from "next/link";
 import { featuredDuos } from "@/lib/products";
 import { CastleArt } from "./CastleArt";
@@ -26,7 +26,7 @@ export function FeaturedDuos() {
             <div className="grid md:grid-cols-2">
               {heroDuo.kidImage ? (
                 <figure className="relative border-b border-ink/8 md:border-b-0 md:border-r">
-                  <Image
+                  <AppImage
                     src={heroDuo.kidImage}
                     alt={`${heroDuo.name} Kid Edition cover`}
                     width={1280}
@@ -40,7 +40,7 @@ export function FeaturedDuos() {
               ) : null}
               {heroDuo.adultImage ? (
                 <figure className="relative">
-                  <Image
+                  <AppImage
                     src={heroDuo.adultImage}
                     alt={`${heroDuo.name} Adult Edition cover`}
                     width={1280}
@@ -77,7 +77,7 @@ export function FeaturedDuos() {
             >
               <div className="relative bg-mist">
                 {product.kidImage ? (
-                  <Image
+                  <AppImage
                     src={product.kidImage}
                     alt={`${product.name} Kid Edition cover`}
                     width={1280}

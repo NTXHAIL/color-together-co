@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { AppImage } from "@/components/AppImage";
 import { ButtonLink } from "@/components/ButtonLink";
 import { frenchie } from "@/lib/products";
 
@@ -30,7 +30,7 @@ export default function FrenchiePage() {
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           <figure className="overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-card)]">
-            <Image
+            <AppImage
               src="/images/frenchie-kid-edition.jpg"
               alt="Frenchie Family Night Kid Edition Couch Throne cover"
               width={1280}
@@ -41,7 +41,7 @@ export default function FrenchiePage() {
             <figcaption className="px-5 py-4 text-sm font-semibold">Kid Edition — Couch Throne</figcaption>
           </figure>
           <figure className="overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-card)]">
-            <Image
+            <AppImage
               src="/images/frenchie-adult-edition.jpg"
               alt="Frenchie Family Night Adult Edition Couch Throne cover"
               width={1280}
@@ -63,7 +63,7 @@ export default function FrenchiePage() {
             </ul>
           </div>
           <figure className="overflow-hidden rounded-[1.6rem] bg-paper shadow-[var(--shadow-card)]">
-            <Image
+            <AppImage
               src="/images/frenchie-walk-squad.jpg"
               alt="Walk Squad lifestyle concept for Frenchie Family Night"
               width={1280}

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage } from "./AppImage";
 
 const benefits = [
   {
@@ -43,7 +43,7 @@ export function WhyTwinPacks() {
         </div>
         <div className="relative">
           <div className="overflow-hidden rounded-[1.8rem] bg-cloud shadow-[var(--shadow-lift)] ring-4 ring-sunshine/40">
-            <Image
+            <AppImage
               src="/images/frenchie-walk-squad.jpg"
               alt="Walk Squad Frenchie concept: a smiling French bulldog on a heart-print leash next to colorful sneakers"
               width={1280}

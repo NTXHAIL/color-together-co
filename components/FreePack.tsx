@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage } from "./AppImage";
 import { LeadForm } from "./LeadForm";
 
 export function FreePack() {
@@ -6,7 +6,7 @@ export function FreePack() {
     <section id="free-pack" className="bg-sunshine">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:py-20">
         <div className="overflow-hidden rounded-[1.8rem] bg-paper shadow-[var(--shadow-lift)]">
-          <Image
+          <AppImage
             src="/images/frenchie-kid-edition.jpg"
             alt="Frenchie Family Night Kid Edition sample cover"
             width={1280}
